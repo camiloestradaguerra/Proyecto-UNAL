@@ -91,8 +91,6 @@ covs_df = pd.read_csv('poligonos_df_final.csv')
 covs_df = gpd.GeoDataFrame(covs_df, columns=['geometry','Núm de Comando de Atención Inmediata 2020','Rest y Bares'])
 covs_df = covs_df.rename(columns={'Rest y Bares' : 'cov2', 'Núm de Comando de Atención Inmediata 2020' : 'cov1'})
 # Normalizamos las columnas de covariados
-covs_df['cov1'] = covs_df['cov1']/covs_df['cov1'].sum()
-covs_df['cov2'] = covs_df['cov2']/covs_df['cov2'].sum()
 covs_df['geometry'] = covs_df['geometry'].apply(wkt.loads)
 covs_df = gpd.GeoDataFrame(covs_df, geometry='geometry')
 
